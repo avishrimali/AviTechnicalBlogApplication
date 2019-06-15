@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<!--To make developer understand that thymeleaf is used.-->
+<head>
+    <title>Technical Blog Application</title>
+</head>
+
+<body>
+    <h1>All Technical Posts</h1>
+    <!--Container: gave name as main, Here, the main tag indicates that the main content of the web page is within these tags-->
+    <!--id posts should match with the key of model attribute in controller.-->
+    <main id="posts">
+        <!--The post tag is a dummy container and does not signify anything to HTML or Thymeleaf. This is just to make the code more readable.-->
+        <post th:each="p : ${posts}">
+            <h2 th:text="${p.title}"></h2>
+            <!--i for itallic letters-->
+            <i>Posted On: </i> <span th:text="${p.date}"></spanth:text>
+            <div>
+                <p th:text="${p.body}"></p>
+            </div>
+        </post>
+    </main>
+</body>
+
+</html>
