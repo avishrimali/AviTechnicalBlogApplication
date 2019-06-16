@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Application- Login</title>
+</head>
+
+<!--Even the login page will be displayed the header which contains login and registration link will be displayed.-->
+<header th:replace="layout :: logged-out"></header>
+
+<h2>Please login: </h2>
+
+<!--<form th:action="@{/users/login}" th:method="POST" th:object="${User}">-->
+<form method="post" th:object="${User}">
+    <label for="username">Username:</label>
+    <input type="text" id="username"/>
+    <!--Html provides an input called password which hides sensitive information.-->
+    <label for="password">Password:</label>
+    <input type="password" id="password"/>
+    <input type="submit" value="Login">
+</form>
+</html>

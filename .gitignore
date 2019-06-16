@@ -1,0 +1,12 @@
+.idea/
+target/
+.project
+.classpath
+.settings/
+.gitconfig
+logs/
+.metadata/
+.DS_Store
+test-output
+.recommenders/
+technicalblog.iml

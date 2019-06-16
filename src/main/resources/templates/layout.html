@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:fragment="site-head"></head>
+<body>
+    <header th:fragment="logged-out" th:remove="tag">
+        <!--One more container under header-->
+        <header>
+            <a href="users/login.html" th:href="@{users/login}">Login</a>
+            <!--th:href="@{/users/login}" overwrites href="users/login.html". This means that instead of being redirected to “users/login.html”, -->
+            <!--when one clicks on login, he/she will be redirected to http://localhost:8080/users/login.-->
+            <!--i.e.  “Login” button is clicked, the web browser will request for the web page mapped to “http://localhost:8080/users/login”. -->
+            <!--After that, the dispatcher servlet scans for controller class with the method mapped with “/users/login”.-->
+
+            <!--If th:href="@{/users/login}" is removed the call will go to login.html page.-->
+
+            <a href="users/registration.html" th:href="@{users/registration}">Registration</a>
+        </header>
+
+        <header th:fragment="logged-in" th:remove="tag">
+            <header>
+                <form method="post" th:action="@{users/logout}">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </header>
+        </header>
+
+    </header>
+</body>
+
+</html>
+
+
+<!--Multiple files will be using the same logged out and logged in headers.-->
+<!--For example, a logged out user should see options to login at three webpages:-->
+<!--the landing page(index.html)-->
+<!--registration page(to be created later on)-->
+<!--Whereas a logged in user should see a logout button at:-->
+<!--The user homepage(to be created later)-->
+<!--The page where he/she will go to create a post (to be created later)-->
+<!--Hence to facilitate reuse of HTML code written, we will be using the layout.html file and referencing parts of this file to reuse the code.-->

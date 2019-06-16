@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <!--To make developer understand that thymeleaf is used.-->
-<head>
-    <title>Technical Blog Application</title>
+
+<!--Instead of following hardcoded title we will be using thymeleaf for title-->
+<!--<head>-->
+    <!--<title>Technical Blog Application</title>-->
+<!--</head>-->
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Application</title>
 </head>
+
+
+<!--Header is understood by thymeleaf. layout is header and logged-out is fragment described in layout.html-->
+<header th:replace="layout :: logged-out"></header>
 
 <body>
     <h1>All Technical Posts</h1>
@@ -11,6 +20,7 @@
     <!--id posts should match with the key of model attribute in controller.-->
     <main id="posts">
         <!--The post tag is a dummy container and does not signify anything to HTML or Thymeleaf. This is just to make the code more readable.-->
+        <!--If we have only one post instead of posts and model has key "post" then post tag is not required, we can use directly post instead of p in following code -->
         <post th:each="p : ${posts}">
             <h2 th:text="${p.title}"></h2>
             <!--i for itallic letters-->

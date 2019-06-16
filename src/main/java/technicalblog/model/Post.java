@@ -1,7 +1,10 @@
 package technicalblog.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
+@Component
 public class Post {
 
     public Date date;
