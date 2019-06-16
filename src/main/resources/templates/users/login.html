@@ -9,13 +9,15 @@
 
 <h2>Please login: </h2>
 
-<!--<form th:action="@{/users/login}" th:method="POST" th:object="${User}">-->
-<form method="post" th:object="${User}">
+<form th:action="@{/users/login}" th:method="POST" th:object="${User}">
+<!--<form method="post" th:object="${User}">-->
     <label for="username">Username:</label>
-    <input type="text" id="username"/>
+
+    <!--if you don't provide the label name here, username object will be null and UserService class will get null user object.-->
+    <input type="text" id="username" name="username"/>
     <!--Html provides an input called password which hides sensitive information.-->
     <label for="password">Password:</label>
-    <input type="password" id="password"/>
+    <input type="password" id="password" name="password"/>
     <input type="submit" value="Login">
 </form>
 </html>

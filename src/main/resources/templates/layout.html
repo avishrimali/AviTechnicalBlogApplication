@@ -5,7 +5,7 @@
     <header th:fragment="logged-out" th:remove="tag">
         <!--One more container under header-->
         <header>
-            <a href="users/login.html" th:href="@{users/login}">Login</a>
+            <a href="users/login.html" th:href="@{/users/login}">Login</a>
             <!--th:href="@{/users/login}" overwrites href="users/login.html". This means that instead of being redirected to “users/login.html”, -->
             <!--when one clicks on login, he/she will be redirected to http://localhost:8080/users/login.-->
             <!--i.e.  “Login” button is clicked, the web browser will request for the web page mapped to “http://localhost:8080/users/login”. -->
@@ -13,17 +13,17 @@
 
             <!--If th:href="@{/users/login}" is removed the call will go to login.html page.-->
 
-            <a href="users/registration.html" th:href="@{users/registration}">Registration</a>
+            <a href="users/registration.html" th:href="@{/users/registration}">Registration</a>
         </header>
 
         <header th:fragment="logged-in" th:remove="tag">
             <header>
-                <form method="post" th:action="@{users/logout}">
+                <a href="posts/create.html" th:href="@{posts/newpost}">Create post</a>
+                <form method="post" th:action="@{/users/logout}">
                     <input type="submit" value="Logout"/>
                 </form>
             </header>
         </header>
-
     </header>
 </body>
 
