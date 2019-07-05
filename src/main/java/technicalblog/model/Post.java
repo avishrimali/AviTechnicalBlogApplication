@@ -1,14 +1,25 @@
 package technicalblog.model;
 
-import org.springframework.stereotype.Component;
-
+import javax.persistence.*;
 import java.util.Date;
 
-@Component
+@Entity
+@Table(name="posts")
 public class Post {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)// To make it a primary key
+    @Column(name ="id")
+    private Integer id;
+//    @Transient// not persisted so ignores check if its present in db or not
+
+    @Column(name ="date")
     public Date date;
+
+    @Column(name ="title")
     public String title;
+
+    @Column(name= "body")
     public String body;
 
     public String getBody() {
@@ -34,4 +45,13 @@ public class Post {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }
